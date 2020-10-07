@@ -1,4 +1,13 @@
 body {
    text-align: center; 
 }
-    
+
+.container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#buttonStart {
+    background-color: lavender;
+    font-size: 30px;
+}
