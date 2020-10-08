@@ -7,7 +7,11 @@ body {
     padding-bottom: 50px;
 }
 
-#buttonStart {
+#buttonStart, #buttonNext, #buttonRestart {
     background-color: lavender;
     font-size: 30px;
+}
+
+#beginQuiz {
+    display:none;
 }
