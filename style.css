@@ -15,3 +15,11 @@ body {
 #beginQuiz {
     display:none;
 }
+
+ol li {
+    text-align: center;
+}
+
+#buttonQuestion {
+    font-size: 45px
+}
