@@ -16,10 +16,13 @@ body {
     display:none;
 }
 
-ol li {
-    text-align: center;
+ol {
+    display: table;
+    margin: 0 auto;
 }
 
-#buttonQuestion {
-    font-size: 45px
+
+.buttonQuestion {
+    background-color: lavender;
+    font-size: 30px;
 }

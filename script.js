@@ -17,9 +17,9 @@ startButton.addEventListener('click', function () {
         if (count === 0) {
             clearInterval(interval);
             document.getElementById('timer').textContent = 'Finished';
-            setTimeout(function(){
-            alert("You're out of time!");
-            },0)
+            setTimeout(function () {
+                alert("You're out of time!");
+            }, 0)
         }
     }, 1000);
 })
