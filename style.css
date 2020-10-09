@@ -7,9 +7,14 @@ body {
     padding-bottom: 50px;
 }
 
-#buttonStart, #buttonNext, #buttonRestart {
+#buttonStart {
     background-color: lavender;
     font-size: 30px;
+}
+
+#buttonNext, #buttonRestart {
+    background-color: lavender;
+    font-size: 15px;
 }
 
 #beginQuiz {
@@ -19,6 +24,7 @@ body {
 ol {
     display: table;
     margin: 0 auto;
+    font-size: 30px;
 }
 
 
