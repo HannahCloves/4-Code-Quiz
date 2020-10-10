@@ -30,51 +30,50 @@ var answerOne = document.getElementById("optionOne");
 var answerTwo = document.getElementById("optionTwo");
 var answerThree = document.getElementById("optionThree");
 var answerFour = document.getElementById("optionFour");
+var markedAnswer = document.getElementById("markedAnswer");
 
 // list of all questions, choices, and answers
 var quizQuestions = [
     {
         actualQuizQuestion: "Commonly used data types DO NOT include:",
-        optionOne: "strings",
-        optionTwo: "booleans",
-        optionThree: "alerts",
-        optionFour: "numbers",
-        answer: "alerts"
+        optionOne: "Strings",
+        optionTwo: "Booleans",
+        optionThree: "Alerts",
+        optionFour: "Numbers",
+        answer: "Alerts"
     },
     {
         actualQuizQuestion: "The condition in an if / else statement is enclosed within ____.",
-        optionOne: "quotes",
-        optionTwo: "curly brackets",
-        optionThree: "parentheses",
-        optionFour: "square brackets",
-    answer: "parentheses"
+        optionOne: "Quotes",
+        optionTwo: "Curly Brackets",
+        optionThree: "Parentheses",
+        optionFour: "Square Brackets",
+        answer: "Parentheses"
     },
-{
-    actualQuizQuestion: "Arrays in JavaScript can be used to store ____.",
-    optionOne: "numbers and strings",
-    optionTwo: "other arrays",
-    optionThree: "booleans",
-    optionFour:"all of the above",
-    answer: "all of the above"
-},
-{
-    actualQuizQuestion: "String values must be enclosed within ____ when being assigned to variables.",
-    optionOne: "commas",
-    optionTwo: "curly brackets",
-    optionThree: "quotes",
-    optionFour: "parentheses",
-    answer: "quotes"
-},
-{
-    actualQuizQuestion: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices: {
-            optionOne: "JavaScript",
-            optionTwo: "terminal / bash",
-            optionThree: "for loops",
-            optionFour: "console.log",
-    answer: "console.log"
-}
-];
+    {
+        actualQuizQuestion: "Arrays in JavaScript can be used to store ____.",
+        optionOne: "Numbers and Strings",
+        optionTwo: "Other Arrays",
+        optionThree: "Booleans",
+        optionFour: "All of the above",
+        answer: "All of the above"
+    },
+    {
+        actualQuizQuestion: "String values must be enclosed within ____ when being assigned to variables.",
+        optionOne: "Commas",
+        optionTwo: "Curly brackets",
+        optionThree: "Quotes",
+        optionFour: "Parentheses",
+        answer: "Quotes"
+    },
+    {
+        actualQuizQuestion: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        optionOne: "JavaScript",
+        optionTwo: "Terminal / Bash",
+        optionThree: "For Loops",
+        optionFour: "console.log",
+        answer: "console.log"
+    }];
 
 var questionIndex = 0;
 
@@ -82,21 +81,35 @@ startButton.addEventListener('click', startQuiz)
 
 function startQuiz() {
     var q = quizQuestions[questionIndex];
-
     actualQuizQuestion.textContent = q.actualQuizQuestion;
-
     answerOne.textContent = q.optionOne;
     answerOne.setAttribute("text", "optionOne");
     answerTwo.textContent = q.optionTwo;
-    answerTwo.setAttribute("text", q.optionTwo);
+    answerTwo.setAttribute("text", "optionTwo");
     answerThree.textContent = q.optionThree;
-    answerThree.setAttribute("text", q.optionThree);
+    answerThree.setAttribute("text", "optionThree");
     answerFour.textContent = q.optionFour;
-    answerFour.setAttribute("text", q.optionFour);
+    answerFour.setAttribute("text", "optionFour");
 
-    console.log(actualQuizQuestion)
-    console.log(answerOne)
-}
+    answerOne.addEventListener('click', nextQuestion)
+    answerTwo.addEventListener('click', nextQuestion)
+    answerThree.addEventListener('click', nextQuestion)
+    answerFour.addEventListener('click', nextQuestion)
 
+
+    function nextQuestion(event) {
+        if (event.target.innerText === quizQuestions[questionIndex].answer) {
+            markedAnswer.textContent = "this is correct"
+        } else
+            markedAnswer.textContent = "this is incorrect"
+        count -= 10
+        if (count < 0) {
+            count = 0;
+        }
+        questionIndex++;
+        startQuiz();
+    }
+
+};
 
 
