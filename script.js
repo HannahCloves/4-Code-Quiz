@@ -99,9 +99,9 @@ function startQuiz() {
 
     function nextQuestion(event) {
         if (event.target.innerText === quizQuestions[questionIndex].answer) {
-            markedAnswer.textContent = "this is correct"
+            markedAnswer.textContent = "Nice one!"
         } else
-            markedAnswer.textContent = "this is incorrect"
+            markedAnswer.textContent = "Unlucky! -10 to your time."
         count -= 10
         if (count < 0) {
             count = 0;
