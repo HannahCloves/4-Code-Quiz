@@ -1,38 +1,3 @@
-// When clicked, the quiz starts
-
-//When the start button is clicked, it will display the next question and restart button
-//Will also hide the start button
-
-var count = 60;
-
-var startButton = document.getElementById("buttonStart");
-startButton.addEventListener('click', function () {
-    var showQuiz = document.getElementById("beginQuiz");
-    showQuiz.setAttribute("style", "display:block;");
-    startButton.style.display = "none";
-
-    var interval = setInterval(function () {
-        document.getElementById('timer').textContent = count;
-        count--;
-        if (count === 0) {
-            clearInterval(interval);
-            document.getElementById('timer').textContent = 'Finished';
-            setTimeout(function () {
-                alert("You're out of time!");
-            }, 0)
-        }
-    }, 1000);
-
-})
-
-var actualQuizQuestion = document.getElementById("actualQuizQuestion");
-var answerOne = document.getElementById("optionOne");
-var answerTwo = document.getElementById("optionTwo");
-var answerThree = document.getElementById("optionThree");
-var answerFour = document.getElementById("optionFour");
-var markedAnswer = document.getElementById("markedAnswer");
-
-// list of all questions, choices, and answers
 var quizQuestions = [
     {
         actualQuizQuestion: "Commonly used data types DO NOT include:",
@@ -72,44 +37,137 @@ var quizQuestions = [
         optionTwo: "Terminal / Bash",
         optionThree: "For Loops",
         optionFour: "console.log",
-        answer: "console.log"
-    }];
+        answer: "console.log",
+}];
+// When clicked, the quiz starts
 
-var questionIndex = 0;
+//When the start button is clicked, it will display the next question and restart button
+//Will also hide the start button
+var showQuiz = document.getElementById("beginQuiz");
+var startButton = document.getElementById("buttonStart");
+var actualQuizQuestion = document.getElementById("actualQuizQuestion");
+var answerOne = document.getElementById("optionOne");
+var answerTwo = document.getElementById("optionTwo");
+var answerThree = document.getElementById("optionThree");
+var answerFour = document.getElementById("optionFour");
+var markedAnswer = document.getElementById("markedAnswer");
+var time = quizQuestions.length * 15;
+var timerId;
+var timerEl = document.getElementById("timer");
 
-startButton.addEventListener('click', startQuiz)
 
-function startQuiz() {
+
+// list of all questions, choices, and answers
+    
+    var questionIndex = 0;
+    var startingScore = 0;
+    
+    startButton.addEventListener('click', startQuiz)
+    
+
+    function startQuiz(){
+        showQuiz.setAttribute("style", "display:block;");
+        startButton.style.display = "none";
+        
+       // start timer
+  timerId = setInterval(clockTick, 1000);
+
+  // show starting time
+  timerEl.textContent = time;
+  startQuestions();
+    }
+
+    function startQuestions() {
+    
+    
     var q = quizQuestions[questionIndex];
     actualQuizQuestion.textContent = q.actualQuizQuestion;
     answerOne.textContent = q.optionOne;
     answerOne.setAttribute("text", "optionOne");
+    answerOne.setAttribute("value", q.optionOne)
     answerTwo.textContent = q.optionTwo;
     answerTwo.setAttribute("text", "optionTwo");
+    answerTwo.setAttribute("value", q.optionTwo)
     answerThree.textContent = q.optionThree;
     answerThree.setAttribute("text", "optionThree");
+    answerThree.setAttribute("value", q.optionThree)
     answerFour.textContent = q.optionFour;
     answerFour.setAttribute("text", "optionFour");
+    answerFour.setAttribute("value", q.optionFour)
 
     answerOne.addEventListener('click', nextQuestion)
     answerTwo.addEventListener('click', nextQuestion)
     answerThree.addEventListener('click', nextQuestion)
     answerFour.addEventListener('click', nextQuestion)
+}
 
 
-    function nextQuestion(event) {
-        if (event.target.innerText === quizQuestions[questionIndex].answer) {
+
+
+    function nextQuestion() {
+    
+        if (this.value === quizQuestions[questionIndex].answer) {
             markedAnswer.textContent = "Nice one!"
-        } else
+            startingScore++
+        } else {
             markedAnswer.textContent = "Unlucky! -10 to your time."
-        count -= 10
-        if (count < 0) {
-            count = 0;
+        time -= 10
+    }
+        if (time < 0) {
+            time = 0;
+         
         }
         questionIndex++;
-        startQuiz();
+        if(questionIndex > 4) {
+            endQuiz();
+        } else {
+        startQuestions();
+        }
     }
 
-};
+    function endQuiz() {
+    clearInterval(timerId);
+     
+    var finalScoreSection = document.getElementById("finalFeedback");
+    finalScoreSection.removeAttribute("class");
+    var score = document.getElementById("score");
+    score.textContent = "Your final score:" + startingScore;
+    showHighscores();
+    }
+
+    function clockTick() {
+        // update time
+        time--;
+        timerEl.textContent = time;
+      
+        // check if user ran out of time
+        if (time <= 0) {
+          endQuiz();
+        }
+      }
+
+
+   function showHighscores(){
+    finalFeedback.setAttribute("style", "display:block;");
+    var storedScores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var myScore = {
+        score: startingScore,
+        name: "HC"
+        }
+        storedScores.push(myScore);
+        window.localStorage.setItem("highscores", JSON.stringify(storedScores));
+        console.log(storedScores);
+        storedScores.forEach(function(score) {
+            var scoreEntry = document.createElement("li");
+            scoreEntry.textContent = score.name + "-" + score.score;
+            var fullScoresList = document.getElementById("highscoresList");
+            fullScoresList.appendChild(scoreEntry);
+        })
+   }
+
+
+
+
+
 
 
