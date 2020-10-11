@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  font-size: 20px;
 }
 
 .container {
@@ -12,13 +13,12 @@ body {
   font-size: 30px;
 }
 
-#buttonNext,
-#buttonRestart {
+#buttonNext, #buttonRestart {
   background-color: lavender;
   font-size: 15px;
 }
 
-#beginQuiz, #highscores {
+#beginQuiz, #finalFeedback, #highscores {
   display: none;
 }
 
@@ -32,3 +32,4 @@ ol {
   background-color: lavender;
   font-size: 25px;
 }
+

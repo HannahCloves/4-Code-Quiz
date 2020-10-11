@@ -16,8 +16,12 @@
     <a id="timer">Timer</a>
   </nav>
   <main class="container">
+    <div id="startingPage"><h2>Code Quiz</h2>
+    <h5>Take on the challenege of completing these 5 questions. Watch out, if you get one wrong you take a 10second time
+      penalty. Good luck!</h5>
+    <br />
     <button type="button" id="buttonStart">Start Quiz!</button>
-
+    </div>  
     <div id="beginQuiz">
       <h2 id="actualQuizQuestion"></h2>
       <ol>
@@ -42,17 +46,18 @@
     <div id="finalFeedback">
       <form>
         <h3>Well done on completing the quiz!</h3>
-        <label for="Initials"> Initials:</label>
-        <input type="text" id="initials" name="initials">
-        <button type="button" class="btn btn-primary">Submit</button>
+        <label for="Initials" id="initialsLabel">Enter your initials:</label>
+        <input type="text" id="initialsInput" name="initials">
+        <button type="button" class="btn btn-primary" id="submit">Submit</button>
       </form>
-  
-    
+
     </div>
-    
+
     <div id="highscores">
       <p id="score"></p>
-      <h1>Highscores:</h1>
+      <button type="button" class="btn btn-primary" id="clear">Clear Highscores</button>
+      <h1>Highscores:</h1> 
+      
       <ol id="highscoresList"></ol>
     </div>
   </main>
