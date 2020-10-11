@@ -19,5 +19,12 @@ Incorrect answer example
 
 ![IncorrectExample](/Assets/IncorrectExample.PNG)
 
+Initials page
 
+![InitialsPage](/Assets/InitialsPage.PNG)
+
+
+Highscores Page
+
+![HighscoresList](/Assets/HighscoresList.PNG)
 
