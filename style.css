@@ -1,34 +1,34 @@
 body {
-   text-align: center; 
+  text-align: center;
 }
 
 .container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #buttonStart {
-    background-color: lavender;
-    font-size: 30px;
+  background-color: lavender;
+  font-size: 30px;
 }
 
-#buttonNext, #buttonRestart {
-    background-color: lavender;
-    font-size: 15px;
+#buttonNext,
+#buttonRestart {
+  background-color: lavender;
+  font-size: 15px;
 }
 
-#beginQuiz, #finalFeedback {
-    display:none;
+#beginQuiz, #finalFeedback, #highscores {
+  display: none;
 }
 
 ol {
-    display: table;
-    margin: 0 auto;
-    font-size: 30px;
+  display: table;
+  margin: 0 auto;
+  font-size: 30px;
 }
 
-
 .buttonQuestion {
-    background-color: lavender;
-    font-size: 25px;
+  background-color: lavender;
+  font-size: 25px;
 }
