@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
@@ -12,33 +12,39 @@
 
 <body>
   <nav class="navbar navbar-light bg-light" id="highscores">
-    <span class="navbar-brand mb-0 h1">View Highscores</span>
+    <span class="navbar-brand mb-0 h1">Code Quiz</span>
     <a id="timer">Timer</a>
   </nav>
   <main class="container">
-
     <button type="button" id="buttonStart">Start Quiz!</button>
 
     <div id="beginQuiz">
       <h2 id="actualQuizQuestion"></h2>
       <ol>
-        <li><button type="button" class="btn buttonQuestion" id="optionOne"></button></li>
-        <li><button type="button" class="btn buttonQuestion" id="optionTwo"></button></li>
-        <li><button type="button" class="btn buttonQuestion" id="optionThree"></button></li>
-        <li><button type="button" class="btn buttonQuestion" id="optionFour"></button></li>
+        <li>
+          <button type="button" class="btn buttonQuestion" id="optionOne"></button>
+        </li>
+        <li>
+          <button type="button" class="btn buttonQuestion" id="optionTwo"></button>
+        </li>
+        <li>
+          <button type="button" class="btn buttonQuestion" id="optionThree"></button>
+        </li>
+        <li>
+          <button type="button" class="btn buttonQuestion" id="optionFour"></button>
+        </li>
       </ol>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <h4 id="markedAnswer"></h4>
     </div>
 
     <div id="finalFeedback">
-      <h3>Thanks for taking my quiz</h3>
-      <p id="score"> </p>
+      <h3>Well done on completing the quiz!</h3>
+      <p id="score"></p>
       <h1>Highscores:</h1>
       <ol id="highscoresList"></ol>
     </div>
-
   </main>
 </body>
 <script type="text/javascript" src="script.js"></script>
