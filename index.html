@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light" id="highscores">
+  <nav class="navbar navbar-light bg-light" id="nav">
     <span class="navbar-brand mb-0 h1">Code Quiz</span>
     <a id="timer">Timer</a>
   </nav>
@@ -40,7 +40,13 @@
     </div>
 
     <div id="finalFeedback">
-      <h3>Well done on completing the quiz!</h3>
+      <form>
+        <h3>Well done on completing the quiz!</h3>
+        <label for="Initials"> Initials:</label>
+        <input type="text" id="initials" name="initials">
+        <button type="button" class="btn btn-primary">Submit</button>
+      </form>
+  
     
     </div>
     

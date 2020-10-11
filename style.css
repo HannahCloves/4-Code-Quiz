@@ -18,7 +18,7 @@ body {
   font-size: 15px;
 }
 
-#beginQuiz, #finalFeedback, #highscores {
+#beginQuiz, #highscores {
   display: none;
 }
 
